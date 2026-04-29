@@ -1,19 +1,10 @@
-import base44 from "@base44/vite-plugin"
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: '/UPRM_WIKI2026/', // <--- Add this line here
-  logLevel: 'error', 
+  // This 'base' tells Vite your site is at /UPRM_WIKI2026/ and not the root
+  base: '/UPRM_WIKI2026/', 
   plugins: [
-    base44({
-      legacySDKImports: process.env.BASE44_LEGACY_SDK_IMPORTS === 'true',
-      hmrNotifier: true,
-      navigationNotifier: true,
-      analyticsTracker: true,
-      visualEditAgent: true
-    }),
     react(),
   ]
 });
