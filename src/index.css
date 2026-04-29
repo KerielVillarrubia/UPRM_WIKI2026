@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-body: 'Inter Tight', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --background: 0 0% 4%;
+    --foreground: 240 0% 96%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 73 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 73 100% 50%;
+    --chart-1: 73 100% 50%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 0 0% 96%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+
+    --sulfur: 73 100% 50%;
+    --biolume: 180 100% 50%;
+    --bone: 240 5% 97%;
+    --abyssal: 0 0% 4%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 240 0% 96%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 73 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 73 100% 50%;
+    --chart-1: 73 100% 50%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 0 0% 96%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--abyssal));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--sulfur));
+}
+
+/* Glow effects */
+.glow-sulfur {
+  text-shadow: 0 0 40px hsla(var(--sulfur), 0.4), 0 0 80px hsla(var(--sulfur), 0.2);
+}
+.glow-biolume {
+  text-shadow: 0 0 40px hsla(var(--biolume), 0.4), 0 0 80px hsla(var(--biolume), 0.2);
+}
+.box-glow-sulfur {
+  box-shadow: 0 0 30px hsla(var(--sulfur), 0.15), 0 0 60px hsla(var(--sulfur), 0.05);
+}
+.box-glow-biolume {
+  box-shadow: 0 0 30px hsla(var(--biolume), 0.15), 0 0 60px hsla(var(--biolume), 0.05);
+}
+
+/* Grain overlay */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mycelial line animation */
+@keyframes grow-line {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.mycelial-line {
+  transform-origin: top;
+  animation: grow-line 1.5s ease-out forwards;
+}
+
+/* Pulse animation for CTA */
+@keyframes organic-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsla(var(--biolume), 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 30px 10px hsla(var(--biolume), 0.15); }
+}
+.pulse-organic {
+  animation: organic-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes scan-line {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
