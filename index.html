@@ -1,43 +1,14 @@
-import SiteNav from '../components/SiteNav';
-import HeroSection from '../components/HeroSection';
-import SectionDivider from '../components/SectionDivider';
-import ContaminationSection from '../components/ContaminationSection';
-import BioremediationSection from '../components/BioremediationSection';
-import RestorationSection from '../components/RestorationSection';
-import FooterSection from '../components/FooterSection';
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <SiteNav />
-      
-      {/* 01 — Hero */}
-      <HeroSection />
-
-      <SectionDivider color="sulfur" />
-
-      {/* 02 — Contamination */}
-      <div id="contamination">
-        <ContaminationSection />
-      </div>
-
-      <SectionDivider color="biolume" />
-
-      {/* 03 — Bioremediation */}
-      <div id="bioremediation">
-        <BioremediationSection />
-      </div>
-
-      <SectionDivider color="biolume" />
-
-      {/* 04 — Restoration & Contact */}
-      <div id="restoration">
-        <div id="contact">
-          <RestorationSection />
-        </div>
-      </div>
-
-      <FooterSection />
-    </div>
-  );
-}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Base44 APP</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
